@@ -8,7 +8,7 @@ const HeroSection = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white font-deuterium-variable overflow-hidden">
+    <div className="min-h-screen bg-white font-deuterium-variable overflow-x-hidden">
       {/* Header */}
       <header className="pt-4 sm:pt-8 px-4 sm:px-8 lg:px-16">
         <div className="flex items-center justify-between">
