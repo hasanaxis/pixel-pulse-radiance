@@ -50,8 +50,8 @@ const HeroSection = () => {
 
             {/* Right Column - Images */}
             <div className="relative">
-              {/* Soft Radial Gradient Background */}
-              <div className="absolute inset-0 bg-gradient-radial from-[#DA90C7]/20 via-[#C757AB]/10 to-transparent opacity-60 rounded-3xl transform translate-x-8 translate-y-8 blur-xl"></div>
+              {/* Soft Radial Gradient Background - More Visible */}
+              <div className="absolute inset-0 bg-gradient-radial from-[#E91E63]/25 via-[#DA90C7]/15 to-transparent opacity-80 rounded-3xl transform translate-x-12 translate-y-12 blur-2xl scale-110"></div>
               
               {/* Images Grid */}
               <div className="relative grid grid-cols-2 gap-4 h-[600px] z-10">
