@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { ArrowRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const EmailSignup = () => {
   const [email, setEmail] = useState('');
@@ -15,17 +16,30 @@ const EmailSignup = () => {
     setIsLoading(true);
 
     try {
-      // For now, we'll just show a success message
-      // This will need to be connected to Supabase later
-      console.log('Email submitted:', email);
-      
-      toast({
-        title: "Success!",
-        description: "You'll be the first to know when we open.",
-      });
+      const { error } = await supabase
+        .from('email_signups')
+        .insert([{ email }]);
+
+      if (error) {
+        if (error.code === '23505') {
+          // Unique constraint violation (email already exists)
+          toast({
+            title: "Email already registered",
+            description: "This email is already on our list. Thanks for your interest!",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        toast({
+          title: "Success!",
+          description: "You'll be the first to know when we open.",
+        });
+      }
       
       setEmail('');
     } catch (error) {
+      console.error('Error saving email:', error);
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
