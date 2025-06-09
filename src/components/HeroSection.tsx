@@ -32,7 +32,7 @@ const HeroSection = () => {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
             
             {/* Left Column - Content */}
-            <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
+            <div className="space-y-6 sm:space-y-8 order-1 lg:order-1">
               {/* Coming Soon Pill */}
               <div className="inline-flex">
                 <span className="px-4 sm:px-6 py-2 bg-white border border-axis-purple text-axis-purple rounded-full text-sm font-medium font-deuterium-variable">
@@ -61,7 +61,7 @@ const HeroSection = () => {
             </div>
 
             {/* Right Column - Images */}
-            <div className="relative order-1 lg:order-2">
+            <div className="relative order-2 lg:order-2">
               {/* Enhanced Radial Gradient Background */}
               <div className="absolute -inset-8 sm:-inset-16 bg-gradient-radial from-[#E91E63]/50 via-[#DA90C7]/30 via-[#C757AB]/20 to-transparent rounded-full blur-[60px] sm:blur-[100px] scale-150"></div>
               
