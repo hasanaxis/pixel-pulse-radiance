@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import EmailSignup from './EmailSignup';
 import { Button } from './ui/button';
@@ -186,7 +185,7 @@ const HeroSection = () => {
               {/* Right Column - Images */}
               <div className="relative order-2 lg:order-2">
                 {/* Images Grid */}
-                <div className="relative grid grid-cols-2 gap-2 sm:gap-4 h-[300px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10">
+                <div className="relative grid grid-cols-2 gap-2 sm:gap-4 h-[300px] sm:h-[350px] md:h-[450px] lg:h-[300px] z-10">
                   {/* Left Column - Two stacked images */}
                   <div className="space-y-2 sm:space-y-4 flex flex-col h-full lg:justify-center">
                     <div className="flex-1 lg:h-[40%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
@@ -207,7 +206,7 @@ const HeroSection = () => {
 
                   {/* Right Column - One large image */}
                   <div className="flex items-stretch lg:items-center lg:justify-center h-full">
-                    <div className="w-full lg:h-[70%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
+                    <div className="w-full lg:h-full rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                       <img
                         src="/lovable-uploads/05c74ef0-abd6-40fc-9f5c-ec3cdf5b0302.png"
                         alt="Advanced medical imaging technology"
