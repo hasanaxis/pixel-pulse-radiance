@@ -15,8 +15,6 @@ const EmailSignup = () => {
     setIsLoading(true);
 
     try {
-      // For now, we'll just show a success message
-      // This will need to be connected to Supabase later
       console.log('Email submitted:', email);
       
       toast({
@@ -37,21 +35,21 @@ const EmailSignup = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center gap-0 max-w-md">
+    <form onSubmit={handleSubmit} className="flex items-center gap-0 w-full max-w-md">
       <Input
         type="email"
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="flex-1 h-12 rounded-r-none border-r-0 focus:ring-0 focus:border-axis-purple font-deuterium-variable"
+        className="flex-1 h-10 sm:h-12 rounded-r-none border-r-0 focus:ring-0 focus:border-axis-purple font-deuterium-variable text-sm sm:text-base"
       />
       <Button
         type="submit"
         disabled={isLoading}
-        className="h-12 px-6 rounded-l-none bg-[#262262] hover:bg-[#1e1a4f] text-white flex items-center gap-2 font-deuterium-variable"
+        className="h-10 sm:h-12 px-4 sm:px-6 rounded-l-none bg-[#262262] hover:bg-[#1e1a4f] text-white flex items-center gap-2 font-deuterium-variable shrink-0"
       >
-        <ArrowRight className="w-4 h-4" />
+        <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
       </Button>
     </form>
   );
