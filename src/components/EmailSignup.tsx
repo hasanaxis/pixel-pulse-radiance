@@ -37,26 +37,20 @@ const EmailSignup = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center gap-0 max-w-md">
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-2 sm:gap-0 max-w-md w-full">
       <Input
         type="email"
         placeholder="Enter your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="flex-1 h-12 rounded-r-none border-r-0 focus:ring-0 focus:border-axis-purple font-deuterium-variable"
+        className="flex-1 h-12 w-full sm:rounded-r-none sm:border-r-0 focus:ring-0 focus:border-axis-purple font-deuterium-variable"
       />
-     <Button
-  type="submit"
-  disabled={isLoading}
-  className="h-12 px-6 rounded-l-none text-white flex items-center gap-2 font-deuterium-variable"
-  style={{
-    backgroundColor: '#262262',
-    '&:hover': {
-      backgroundColor: '#1e1a4f' // Slightly darker shade for hover
-    }
-  }}
->
+      <Button
+        type="submit"
+        disabled={isLoading}
+        className="h-12 px-6 w-full sm:w-auto sm:rounded-l-none bg-[#262262] hover:bg-[#1e1a4f] text-white flex items-center justify-center gap-2 font-deuterium-variable"
+      >
         <ArrowRight className="w-4 h-4" />
       </Button>
     </form>
