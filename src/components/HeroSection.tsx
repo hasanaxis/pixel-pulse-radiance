@@ -27,7 +27,7 @@ const HeroSection = () => {
       </header>
 
       {/* Main Content */}
-      <div className="px-4 sm:px-8 lg:px-16 py-8 sm:py-16 lg:py-20">
+      <div className="px-4 sm:px-8 lg:px-16 py-8 sm:py-16 lg:py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-start lg:items-center">
             
@@ -42,7 +42,7 @@ const HeroSection = () => {
 
               {/* Main Heading */}
               <div className="space-y-4">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight font-deuterium-variable" style={{color: '#3C4247'}}>
+                <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight font-deuterium-variable" style={{color: '#3C4247'}}>
                   Bringing world class medical imaging to{' '}
                   <span className="text-axis-purple">Mickleham's</span>{' '}
                   doorsteps
@@ -61,9 +61,9 @@ const HeroSection = () => {
             </div>
 
             {/* Right Column - Images */}
-            <div className="relative order-2 lg:order-2 h-[300px] sm:h-[350px] md:h-[450px] lg:h-[600px] overflow-hidden">
-              {/* Enhanced Radial Gradient Background - constrained to container */}
-              <div className="absolute inset-0 bg-gradient-radial from-[#E91E63]/50 via-[#DA90C7]/30 via-[#C757AB]/20 to-transparent rounded-full blur-[40px] sm:blur-[60px] scale-110"></div>
+            <div className="relative order-2 lg:order-2 overflow-hidden h-[300px] sm:h-[350px] md:h-[450px] lg:h-[600px]">
+              {/* Enhanced Radial Gradient Background */}
+              <div className="absolute inset-0 bg-gradient-radial from-[#E91E63]/50 via-[#DA90C7]/30 via-[#C757AB]/20 to-transparent rounded-3xl blur-[60px] sm:blur-[100px]"></div>
               
               {/* Images Grid */}
               <div className="relative grid grid-cols-2 gap-2 sm:gap-4 h-full z-10">
