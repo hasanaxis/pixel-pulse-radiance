@@ -69,14 +69,14 @@ const HeroSection = () => {
               <div className="relative grid grid-cols-2 gap-2 sm:gap-4 h-[250px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10 items-center">
                 {/* Left Column - Two stacked images */}
                 <div className="space-y-2 sm:space-y-4 flex flex-col justify-center h-full">
-                  <div className="h-[40%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
+                  <div className="h-[48%] sm:h-[40%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                     <img
                       src="/lovable-uploads/5002d0a4-7947-4e58-a0af-bbe2ae2e5de1.png"
                       alt="Medical professional with patient"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="h-[40%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
+                  <div className="h-[48%] sm:h-[40%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                     <img
                       src="/lovable-uploads/5d65367b-6f40-4eee-8a33-fdd8d36fa22c.png"
                       alt="Medical imaging procedure"
@@ -85,9 +85,9 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                {/* Right Column - One large image - 60% height and vertically centered */}
+                {/* Right Column - One large image - 100% height on mobile, 65% on larger screens */}
                 <div className="flex items-center h-full">
-                  <div className="h-[65%] w-full rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
+                  <div className="h-full sm:h-[65%] w-full rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                     <img
                       src="/lovable-uploads/05c74ef0-abd6-40fc-9f5c-ec3cdf5b0302.png"
                       alt="Advanced medical imaging technology"
