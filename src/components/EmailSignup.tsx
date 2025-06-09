@@ -46,17 +46,11 @@ const EmailSignup = () => {
         required
         className="flex-1 h-12 rounded-r-none border-r-0 focus:ring-0 focus:border-axis-purple font-deuterium-variable"
       />
-     <Button
-  type="submit"
-  disabled={isLoading}
-  className="h-12 px-6 rounded-l-none text-white flex items-center gap-2 font-deuterium-variable"
-  style={{
-    backgroundColor: '#262262',
-    '&:hover': {
-      backgroundColor: '#1e1a4f' // Slightly darker shade for hover
-    }
-  }}
->
+      <Button
+        type="submit"
+        disabled={isLoading}
+        className="h-12 px-6 rounded-l-none bg-[#262262] hover:bg-[#1e1a4f] text-white flex items-center gap-2 font-deuterium-variable"
+      >
         <ArrowRight className="w-4 h-4" />
       </Button>
     </form>
