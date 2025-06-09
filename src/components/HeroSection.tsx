@@ -12,14 +12,25 @@ const HeroSection = () => {
       className="min-h-screen bg-white font-deuterium-variable overflow-x-hidden"
       style={{
         background: `
-          radial-gradient(circle at 75% 50%, 
+          radial-gradient(circle at 75% 65%, 
             rgba(233, 30, 99, 0.5) 0%, 
             rgba(218, 144, 199, 0.3) 25%, 
             rgba(199, 87, 171, 0.2) 50%, 
             transparent 70%
           ),
           white
-        `
+        `,
+        '@media (min-width: 1024px)': {
+          background: `
+            radial-gradient(circle at 75% 50%, 
+              rgba(233, 30, 99, 0.5) 0%, 
+              rgba(218, 144, 199, 0.3) 25%, 
+              rgba(199, 87, 171, 0.2) 50%, 
+              transparent 70%
+            ),
+            white
+          `
+        }
       }}
     >
       {/* Header */}
