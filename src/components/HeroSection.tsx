@@ -43,7 +43,7 @@ const HeroSection = () => {
               {/* Main Heading */}
               <div className="space-y-4">
   <h1 className="text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight font-deuterium-variable" style={{color: '#3C4247'}}>
-    World class medical imaging, coming to{' '}
+    Bringing world class medical imaging to{' '}
     <span className="text-axis-purple">Mickleham's</span>{' '}
     doorsteps
   </h1>
