@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import EmailSignup from './EmailSignup';
 import { Button } from './ui/button';
@@ -13,7 +14,7 @@ const HeroSection = () => {
         className="min-h-screen font-deuterium-variable overflow-x-hidden lg:hidden"
         style={{
           background: `
-            radial-gradient(circle at 75% 65%, 
+            radial-gradient(circle at 75% 106%, 
               rgba(233, 30, 99, 0.5) 0%, 
               rgba(218, 144, 199, 0.3) 25%, 
               rgba(199, 87, 171, 0.2) 50%, 
