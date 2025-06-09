@@ -27,7 +27,7 @@ const HeroSection = () => {
       </header>
 
       {/* Main Content */}
-      <div className="px-4 sm:px-8 lg:px-16 py-8 sm:py-16 lg:py-20">
+      <div className="px-4 sm:px-8 lg:px-16 py-8 sm:py-16 lg:py-20 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-start lg:items-center">
             
@@ -61,12 +61,12 @@ const HeroSection = () => {
             </div>
 
             {/* Right Column - Images */}
-            <div className="relative order-2 lg:order-2 overflow-hidden">
-              {/* Enhanced Radial Gradient Background - contained within images area */}
+            <div className="relative order-2 lg:order-2 overflow-hidden h-[300px] sm:h-[350px] md:h-[450px] lg:h-[600px]">
+              {/* Enhanced Radial Gradient Background */}
               <div className="absolute inset-0 bg-gradient-radial from-[#E91E63]/50 via-[#DA90C7]/30 via-[#C757AB]/20 to-transparent rounded-3xl blur-[60px] sm:blur-[100px]"></div>
               
               {/* Images Grid */}
-              <div className="relative grid grid-cols-2 gap-2 sm:gap-4 h-[300px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10">
+              <div className="relative grid grid-cols-2 gap-2 sm:gap-4 h-full z-10">
                 {/* Left Column - Two stacked images */}
                 <div className="space-y-2 sm:space-y-4 flex flex-col h-full">
                   <div className="flex-1 rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
