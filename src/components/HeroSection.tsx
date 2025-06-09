@@ -61,12 +61,12 @@ const HeroSection = () => {
             </div>
 
             {/* Right Column - Images */}
-            <div className="relative order-2 lg:order-2">
-              {/* Enhanced Radial Gradient Background */}
-              <div className="absolute -inset-8 sm:-inset-16 bg-gradient-radial from-[#E91E63]/50 via-[#DA90C7]/30 via-[#C757AB]/20 to-transparent rounded-full blur-[60px] sm:blur-[100px] scale-150"></div>
+            <div className="relative order-2 lg:order-2 h-[300px] sm:h-[350px] md:h-[450px] lg:h-[600px] overflow-hidden">
+              {/* Enhanced Radial Gradient Background - constrained to container */}
+              <div className="absolute inset-0 bg-gradient-radial from-[#E91E63]/50 via-[#DA90C7]/30 via-[#C757AB]/20 to-transparent rounded-full blur-[40px] sm:blur-[60px] scale-110"></div>
               
               {/* Images Grid */}
-              <div className="relative grid grid-cols-2 gap-2 sm:gap-4 h-[300px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10">
+              <div className="relative grid grid-cols-2 gap-2 sm:gap-4 h-full z-10">
                 {/* Left Column - Two stacked images */}
                 <div className="space-y-2 sm:space-y-4 flex flex-col h-full">
                   <div className="flex-1 rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
