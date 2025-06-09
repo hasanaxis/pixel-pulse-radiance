@@ -1,18 +1,28 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import EmailSignup from './EmailSignup';
+import { Button } from './ui/button';
+import JoinTeamForm from './JoinTeamForm';
 
 const HeroSection = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-white font-deuterium-variable">
       {/* Header */}
       <header className="pt-8 px-8 lg:px-16">
-        <div className="flex items-center">
+        <div className="flex items-center justify-between">
           <img 
             src="/lovable-uploads/8a1054ae-cb81-4180-bb22-d9ed35f2599a.png" 
             alt="Axis Imaging" 
             className="h-12"
           />
+          <Button 
+            onClick={() => setIsFormOpen(true)}
+            className="bg-axis-purple hover:bg-axis-purple-dark text-white font-deuterium-variable"
+          >
+            Join our team
+          </Button>
         </div>
       </header>
 
@@ -51,27 +61,27 @@ const HeroSection = () => {
             {/* Right Column - Images */}
             <div className="relative">
               {/* Enhanced Radial Gradient Background */}
-              <div className="absolute -inset-8 bg-gradient-radial from-[#E91E63]/40 via-[#DA90C7]/25 via-[#C757AB]/15 to-transparent rounded-full blur-3xl scale-125"></div>
+              <div className="absolute -inset-16 bg-gradient-radial from-[#E91E63]/50 via-[#DA90C7]/30 via-[#C757AB]/20 to-transparent rounded-full blur-[100px] scale-150"></div>
               
               {/* Images Grid */}
-<div className="relative grid grid-cols-2 gap-4 h-[600px] z-10 items-center">
-  {/* Left Column - Two stacked images */}
-  <div className="space-y-4 flex flex-col justify-center">
-    <div className="h-[40%] rounded-2xl overflow-hidden shadow-lg">
-      <img
-        src="/lovable-uploads/5002d0a4-7947-4e58-a0af-bbe2ae2e5de1.png"
-        alt="Medical professional with patient"
-        className="w-full h-full object-cover"
-      />
-    </div>
-    <div className="h-[40%] rounded-2xl overflow-hidden shadow-lg">
-      <img
-        src="/lovable-uploads/5d65367b-6f40-4eee-8a33-fdd8d36fa22c.png"
-        alt="Medical imaging procedure"
-        className="w-full h-full object-cover"
-      />
-    </div>
-  </div>
+              <div className="relative grid grid-cols-2 gap-4 h-[600px] z-10 items-center">
+                {/* Left Column - Two stacked images */}
+                <div className="space-y-4 flex flex-col justify-center">
+                  <div className="h-[40%] rounded-2xl overflow-hidden shadow-lg">
+                    <img
+                      src="/lovable-uploads/5002d0a4-7947-4e58-a0af-bbe2ae2e5de1.png"
+                      alt="Medical professional with patient"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="h-[40%] rounded-2xl overflow-hidden shadow-lg">
+                    <img
+                      src="/lovable-uploads/5d65367b-6f40-4eee-8a33-fdd8d36fa22c.png"
+                      alt="Medical imaging procedure"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
 
                 {/* Right Column - One large image - 60% height and vertically centered */}
                 <div className="flex items-center h-full">
@@ -89,6 +99,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      <JoinTeamForm isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} />
     </div>
   );
 };
