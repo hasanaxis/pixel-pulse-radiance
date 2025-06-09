@@ -4,7 +4,7 @@ import EmailSignup from './EmailSignup';
 
 const HeroSection = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 font-deuterium">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 font-deuterium-variable">
       {/* Header */}
       <header className="pt-8 px-8 lg:px-16">
         <div className="flex items-center">
@@ -25,14 +25,14 @@ const HeroSection = () => {
             <div className="space-y-8">
               {/* Coming Soon Pill */}
               <div className="inline-flex">
-                <span className="px-6 py-2 bg-white border border-axis-purple text-axis-purple rounded-full text-sm font-medium font-deuterium">
+                <span className="px-6 py-2 bg-white border border-axis-purple text-axis-purple rounded-full text-sm font-medium font-deuterium-variable">
                   coming soon
                 </span>
               </div>
 
               {/* Main Heading */}
               <div className="space-y-4">
-                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight text-gray-900 font-deuterium">
+                <h1 className="text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight text-gray-900 font-deuterium-variable">
                   World class medical imaging, coming to{' '}
                   <span className="text-axis-purple">Mickleham's</span>{' '}
                   doorsteps
@@ -41,7 +41,7 @@ const HeroSection = () => {
 
               {/* Subtext and Email Signup */}
               <div className="space-y-6">
-                <p className="text-lg text-gray-600 font-deuterium">
+                <p className="text-lg text-gray-600 font-deuterium-variable">
                   Be the first to know when we are open
                 </p>
                 <EmailSignup />
@@ -73,9 +73,9 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                {/* Right Column - One large image */}
-                <div className="h-full">
-                  <div className="h-full rounded-2xl overflow-hidden shadow-lg">
+                {/* Right Column - One large image - 70% height and vertically centered */}
+                <div className="flex items-center h-full">
+                  <div className="h-[70%] w-full rounded-2xl overflow-hidden shadow-lg">
                     <img
                       src="/lovable-uploads/05c74ef0-abd6-40fc-9f5c-ec3cdf5b0302.png"
                       alt="Advanced medical imaging technology"

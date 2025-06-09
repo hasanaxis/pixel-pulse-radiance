@@ -44,12 +44,12 @@ const EmailSignup = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
-        className="flex-1 h-12 rounded-r-none border-r-0 focus:ring-0 focus:border-axis-purple font-deuterium"
+        className="flex-1 h-12 rounded-r-none border-r-0 focus:ring-0 focus:border-axis-purple font-deuterium-variable"
       />
       <Button
         type="submit"
         disabled={isLoading}
-        className="h-12 px-6 rounded-l-none bg-slate-900 hover:bg-slate-800 text-white flex items-center gap-2 font-deuterium"
+        className="h-12 px-6 rounded-l-none bg-slate-900 hover:bg-slate-800 text-white flex items-center gap-2 font-deuterium-variable"
       >
         <ArrowRight className="w-4 h-4" />
       </Button>
