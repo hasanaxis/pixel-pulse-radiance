@@ -4,7 +4,7 @@ import EmailSignup from './EmailSignup';
 
 const HeroSection = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 font-deuterium-variable">
+    <div className="min-h-screen bg-white font-deuterium-variable">
       {/* Header */}
       <header className="pt-8 px-8 lg:px-16">
         <div className="flex items-center">
@@ -50,8 +50,11 @@ const HeroSection = () => {
 
             {/* Right Column - Images */}
             <div className="relative">
+              {/* Soft Radial Gradient Background */}
+              <div className="absolute inset-0 bg-gradient-radial from-[#DA90C7]/20 via-[#C757AB]/10 to-transparent opacity-60 rounded-3xl transform translate-x-8 translate-y-8 blur-xl"></div>
+              
               {/* Images Grid */}
-              <div className="relative grid grid-cols-2 gap-4 h-[600px]">
+              <div className="relative grid grid-cols-2 gap-4 h-[600px] z-10">
                 {/* Left Column - Two stacked images */}
                 <div className="space-y-4">
                   <div className="h-[290px] rounded-2xl overflow-hidden shadow-lg">
