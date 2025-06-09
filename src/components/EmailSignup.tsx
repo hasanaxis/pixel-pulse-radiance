@@ -38,21 +38,43 @@ const EmailSignup = () => {
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center gap-2 sm:gap-0 max-w-md w-full">
-      <Input
-        type="email"
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        className="flex-1 h-12 w-full sm:rounded-r-none sm:border-r-0 focus:ring-0 focus:border-axis-purple font-deuterium-variable"
-      />
-      <Button
-        type="submit"
-        disabled={isLoading}
-        className="h-12 px-6 w-full sm:w-auto sm:rounded-l-none bg-[#262262] hover:bg-[#1e1a4f] text-white flex items-center justify-center gap-2 font-deuterium-variable"
-      >
-        <ArrowRight className="w-4 h-4" />
-      </Button>
+      {/* Mobile: Input with button inside */}
+      <div className="relative w-full sm:hidden">
+        <Input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="h-12 w-full pr-12 focus:ring-0 focus:border-axis-purple font-deuterium-variable"
+        />
+        <Button
+          type="submit"
+          disabled={isLoading}
+          className="absolute right-1 top-1 h-10 w-10 p-0 bg-[#262262] hover:bg-[#1e1a4f] text-white flex items-center justify-center font-deuterium-variable"
+        >
+          <ArrowRight className="w-4 h-4" />
+        </Button>
+      </div>
+
+      {/* Desktop: Input and button side by side */}
+      <div className="hidden sm:flex w-full">
+        <Input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="flex-1 h-12 rounded-r-none border-r-0 focus:ring-0 focus:border-axis-purple font-deuterium-variable"
+        />
+        <Button
+          type="submit"
+          disabled={isLoading}
+          className="h-12 px-6 rounded-l-none bg-[#262262] hover:bg-[#1e1a4f] text-white flex items-center justify-center gap-2 font-deuterium-variable"
+        >
+          <ArrowRight className="w-4 h-4" />
+        </Button>
+      </div>
     </form>
   );
 };
