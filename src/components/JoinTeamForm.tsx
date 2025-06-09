@@ -122,29 +122,29 @@ const JoinTeamForm = ({ isOpen, onClose }: JoinTeamFormProps) => {
           </DialogTitle>
         </DialogHeader>
         
-        {/* Progress indicator */}
-        <div className="flex items-center space-x-4 mb-6">
-          {[1, 2, 3].map((step) => (
-            <div key={step} className="flex items-center">
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                  step <= currentStep
-                    ? 'bg-axis-purple text-white'
-                    : 'bg-gray-200 text-gray-600'
-                }`}
-              >
-                {step}
-              </div>
-              {step < 3 && (
-                <div
-                  className={`w-12 h-1 mx-2 ${
-                    step < currentStep ? 'bg-axis-purple' : 'bg-gray-200'
-                  }`}
-                />
-              )}
-            </div>
-          ))}
-        </div>
+       {/* Progress indicator */}
+<div className="flex items-center justify-center space-x-4 mb-6">
+  {[1, 2, 3].map((step) => (
+    <div key={step} className="flex items-center">
+      <div
+        className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+          step <= currentStep
+            ? 'bg-axis-purple text-white'
+            : 'bg-gray-200 text-gray-600'
+        }`}
+      >
+        {step}
+      </div>
+      {step < 3 && (
+        <div
+          className={`w-12 h-1 mx-2 ${
+            step < currentStep ? 'bg-axis-purple' : 'bg-gray-200'
+          }`}
+        />
+      )}
+    </div>
+  ))}
+</div>
 
         {renderStep()}
       </DialogContent>
