@@ -42,12 +42,7 @@ const HeroSection = () => {
 
               {/* Main Heading */}
               <div className="space-y-4">
-                <h1 className="font-medium leading-tight font-deuterium-variable" style={{color: '#3C4247', fontSize: '2.25rem'}} 
-                    sx={{
-                      '@media (min-width: 1024px)': {
-                        fontSize: '3.75rem'
-                      }
-                    }}>
+                <h1 className="font-medium leading-tight font-deuterium-variable text-[2.25rem] lg:text-[3.75rem]" style={{color: '#3C4247'}}>
                   Bringing world class medical imaging to{' '}
                   <span className="text-axis-purple">Mickleham's</span>{' '}
                   doorsteps
