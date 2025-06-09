@@ -115,7 +115,7 @@ const JoinTeamForm = ({ isOpen, onClose }: JoinTeamFormProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto mx-4 sm:mx-auto">
+      <DialogContent className="w-[calc(100vw-2rem)] max-w-2xl max-h-[90vh] overflow-y-auto mx-auto my-4 sm:w-full sm:mx-auto sm:my-0">
         <DialogHeader>
           <DialogTitle className="text-2xl font-medium text-axis-purple font-deuterium-variable">
             Join Our Team
