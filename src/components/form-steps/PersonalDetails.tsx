@@ -4,6 +4,8 @@ import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { FormData } from '../JoinTeamForm';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 interface PersonalDetailsProps {
   firstName: string;
@@ -24,6 +26,7 @@ const PersonalDetails = ({
   onPrev,
   onSubmit,
 }: PersonalDetailsProps) => {
+  const { toast } = useToast();
   const isValid = firstName.trim() && lastName.trim() && email.trim() && phone.trim();
 
   return (
