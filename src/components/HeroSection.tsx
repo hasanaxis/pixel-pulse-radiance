@@ -73,9 +73,9 @@ const HeroSection = () => {
     </div>
   </div>
 
-                {/* Right Column - One large image - 70% height and vertically centered */}
+                {/* Right Column - One large image - 80% height and vertically centered */}
                 <div className="flex items-center h-full">
-                  <div className="h-[70%] w-full rounded-2xl overflow-hidden shadow-lg">
+                  <div className="h-[80%] w-full rounded-2xl overflow-hidden shadow-lg">
                     <img
                       src="/lovable-uploads/05c74ef0-abd6-40fc-9f5c-ec3cdf5b0302.png"
                       alt="Advanced medical imaging technology"
