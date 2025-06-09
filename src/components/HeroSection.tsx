@@ -68,7 +68,7 @@ const HeroSection = () => {
               {/* Images Grid */}
               <div className="relative grid grid-cols-2 gap-2 sm:gap-4 h-[300px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10">
                 {/* Left Column - Two stacked images */}
-                <div className="space-y-2 sm:space-y-4 flex flex-col h-full">
+                <div className="space-y-2 sm:space-y-4 flex flex-col h-full lg:justify-center">
                   <div className="flex-1 lg:h-[40%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                     <img
                       src="/lovable-uploads/5002d0a4-7947-4e58-a0af-bbe2ae2e5de1.png"
@@ -86,7 +86,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* Right Column - One large image */}
-                <div className="flex items-stretch h-full">
+                <div className="flex items-stretch lg:items-center lg:justify-center h-full">
                   <div className="w-full lg:h-[70%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                     <img
                       src="/lovable-uploads/05c74ef0-abd6-40fc-9f5c-ec3cdf5b0302.png"
