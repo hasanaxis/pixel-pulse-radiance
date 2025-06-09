@@ -11,6 +11,7 @@ import ExperienceDetails from './form-steps/ExperienceDetails';
 import PersonalDetails from './form-steps/PersonalDetails';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { Loader2 } from 'lucide-react';
 
 export type Role = 'Administrative' | 'Sonographer' | 'Radiographer';
 
@@ -33,6 +34,7 @@ interface JoinTeamFormProps {
 const JoinTeamForm = ({ isOpen, onClose }: JoinTeamFormProps) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<string>('');
   const { toast } = useToast();
   const [formData, setFormData] = useState<FormData>({
     role: null,
@@ -73,19 +75,67 @@ const JoinTeamForm = ({ isOpen, onClose }: JoinTeamFormProps) => {
       email: '',
       phone: '',
     });
+    setUploadProgress('');
     onClose();
+  };
+
+  const uploadResumeToStorage = async (file: File): Promise<string | null> => {
+    try {
+      setUploadProgress('Uploading resume...');
+      
+      // Generate unique filename
+      const timestamp = Date.now();
+      const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+      const fileName = `${timestamp}_${sanitizedFileName}`;
+      
+      console.log('Uploading file:', fileName);
+      
+      const { data, error } = await supabase.storage
+        .from('resumes')
+        .upload(fileName, file, {
+          cacheControl: '3600',
+          upsert: false
+        });
+
+      if (error) {
+        console.error('Storage upload error:', error);
+        throw error;
+      }
+
+      console.log('File uploaded successfully:', data);
+      
+      // Get the public URL
+      const { data: urlData } = supabase.storage
+        .from('resumes')
+        .getPublicUrl(fileName);
+
+      return urlData.publicUrl;
+    } catch (error) {
+      console.error('Error uploading resume:', error);
+      throw error;
+    }
   };
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
     
     try {
+      let resumeUrl = null;
+      
+      // Upload resume if provided
+      if (formData.resume) {
+        resumeUrl = await uploadResumeToStorage(formData.resume);
+      }
+      
+      setUploadProgress('Saving application...');
+      
       const applicationData = {
         role: formData.role,
         experience: formData.experience,
         qualifications: formData.qualifications,
         resume_file_name: formData.resume?.name || null,
         resume_file_size: formData.resume?.size || null,
+        resume_url: resumeUrl,
         first_name: formData.firstName,
         last_name: formData.lastName,
         email: formData.email,
@@ -116,6 +166,7 @@ const JoinTeamForm = ({ isOpen, onClose }: JoinTeamFormProps) => {
       });
     } finally {
       setIsSubmitting(false);
+      setUploadProgress('');
     }
   };
 
@@ -197,9 +248,12 @@ const JoinTeamForm = ({ isOpen, onClose }: JoinTeamFormProps) => {
         </div>
 
         {isSubmitting && (
-          <div className="absolute inset-0 bg-white/50 flex items-center justify-center">
-            <div className="text-axis-purple font-deuterium-variable">
-              Submitting application...
+          <div className="absolute inset-0 bg-white/90 flex items-center justify-center backdrop-blur-sm">
+            <div className="text-center">
+              <Loader2 className="h-8 w-8 animate-spin text-axis-purple mx-auto mb-2" />
+              <div className="text-axis-purple font-deuterium-variable">
+                {uploadProgress || 'Submitting application...'}
+              </div>
             </div>
           </div>
         )}

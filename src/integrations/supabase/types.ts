@@ -39,6 +39,7 @@ export type Database = {
           qualifications: string | null
           resume_file_name: string | null
           resume_file_size: number | null
+          resume_url: string | null
           role: string
         }
         Insert: {
@@ -52,6 +53,7 @@ export type Database = {
           qualifications?: string | null
           resume_file_name?: string | null
           resume_file_size?: number | null
+          resume_url?: string | null
           role: string
         }
         Update: {
@@ -65,6 +67,7 @@ export type Database = {
           qualifications?: string | null
           resume_file_name?: string | null
           resume_file_size?: number | null
+          resume_url?: string | null
           role?: string
         }
         Relationships: []
