@@ -27,7 +27,8 @@ const HeroSection = () => {
       </header>
 
       {/* Main Content */}
-      <div className="px-4 sm:px-8 lg:px-16 py-8 sm:py-16 lg:py-20">
+      <div className="px-4 sm:px-8 lg:px-16 py-8 sm:py-16 lg:py-20"style="
+    overflow: hidden;>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-start lg:items-center">
             
