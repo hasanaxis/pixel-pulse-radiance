@@ -66,17 +66,17 @@ const HeroSection = () => {
               <div className="absolute -inset-8 sm:-inset-16 bg-gradient-radial from-[#E91E63]/50 via-[#DA90C7]/30 via-[#C757AB]/20 to-transparent rounded-full blur-[60px] sm:blur-[100px] scale-150"></div>
               
               {/* Images Grid */}
-              <div className="relative grid grid-cols-2 gap-2 sm:gap-4 h-[250px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10 items-center">
+              <div className="relative grid grid-cols-2 gap-2 sm:gap-4 h-[300px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10">
                 {/* Left Column - Two stacked images */}
-                <div className="space-y-2 sm:space-y-4 flex flex-col justify-center h-full">
-                  <div className="h-[48%] sm:h-[40%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
+                <div className="space-y-2 sm:space-y-4 flex flex-col h-full">
+                  <div className="flex-1 rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                     <img
                       src="/lovable-uploads/5002d0a4-7947-4e58-a0af-bbe2ae2e5de1.png"
                       alt="Medical professional with patient"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="h-[48%] sm:h-[40%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
+                  <div className="flex-1 rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                     <img
                       src="/lovable-uploads/5d65367b-6f40-4eee-8a33-fdd8d36fa22c.png"
                       alt="Medical imaging procedure"
@@ -85,9 +85,9 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                {/* Right Column - One large image - 100% height on mobile, 65% on larger screens */}
-                <div className="flex items-center h-full">
-                  <div className="h-full sm:h-[65%] w-full rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
+                {/* Right Column - One large image */}
+                <div className="flex items-stretch h-full">
+                  <div className="w-full rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                     <img
                       src="/lovable-uploads/05c74ef0-abd6-40fc-9f5c-ec3cdf5b0302.png"
                       alt="Advanced medical imaging technology"
