@@ -50,9 +50,6 @@ const HeroSection = () => {
 
             {/* Right Column - Images */}
             <div className="relative">
-              {/* Background Gradient */}
-              <div className="absolute inset-0 bg-gradient-radial from-axis-purple/20 via-axis-purple/10 to-transparent opacity-60 rounded-3xl transform translate-x-8 translate-y-8"></div>
-              
               {/* Images Grid */}
               <div className="relative grid grid-cols-2 gap-4 h-[600px]">
                 {/* Left Column - Two stacked images */}
