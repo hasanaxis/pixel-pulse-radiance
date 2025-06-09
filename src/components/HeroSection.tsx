@@ -8,7 +8,20 @@ const HeroSection = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white font-deuterium-variable overflow-x-hidden">
+    <div 
+      className="min-h-screen bg-white font-deuterium-variable overflow-x-hidden"
+      style={{
+        background: `
+          radial-gradient(circle at 75% 50%, 
+            rgba(233, 30, 99, 0.5) 0%, 
+            rgba(218, 144, 199, 0.3) 25%, 
+            rgba(199, 87, 171, 0.2) 50%, 
+            transparent 70%
+          ),
+          white
+        `
+      }}
+    >
       {/* Header */}
       <header className="pt-4 sm:pt-8 px-4 sm:px-8 lg:px-16">
         <div className="flex items-center justify-between">
@@ -62,9 +75,6 @@ const HeroSection = () => {
 
             {/* Right Column - Images */}
             <div className="relative order-2 lg:order-2">
-              {/* Enhanced Radial Gradient Background */}
-              <div className="absolute -inset-8 sm:-inset-16 bg-gradient-radial from-[#E91E63]/50 via-[#DA90C7]/30 via-[#C757AB]/20 to-transparent rounded-full blur-[60px] sm:blur-[100px] scale-150"></div>
-              
               {/* Images Grid */}
               <div className="relative grid grid-cols-2 gap-2 sm:gap-4 h-[300px] sm:h-[350px] md:h-[450px] lg:h-[600px] z-10">
                 {/* Left Column - Two stacked images */}
