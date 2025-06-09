@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Dialog,
   DialogContent,
@@ -9,9 +9,10 @@ import {
 import RoleSelection from './form-steps/RoleSelection';
 import ExperienceDetails from './form-steps/ExperienceDetails';
 import PersonalDetails from './form-steps/PersonalDetails';
-import { supabase } from '@/integrations/supabase/client';
-import { useToast } from '@/hooks/use-toast';
-import { Loader2 } from 'lucide-react';
+import ProgressIndicator from './form-components/ProgressIndicator';
+import LoadingOverlay from './form-components/LoadingOverlay';
+import { useFormState } from '@/hooks/useFormState';
+import { useFormSubmission } from '@/hooks/useFormSubmission';
 
 export type Role = 'Administrative' | 'Sonographer' | 'Radiographer';
 
@@ -32,141 +33,30 @@ interface JoinTeamFormProps {
 }
 
 const JoinTeamForm = ({ isOpen, onClose }: JoinTeamFormProps) => {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState<string>('');
-  const { toast } = useToast();
-  const [formData, setFormData] = useState<FormData>({
-    role: null,
-    experience: '',
-    qualifications: '',
-    resume: null,
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-  });
+  const {
+    currentStep,
+    formData,
+    updateFormData,
+    nextStep,
+    prevStep,
+    resetForm,
+  } = useFormState();
 
-  const updateFormData = (updates: Partial<FormData>) => {
-    setFormData(prev => ({ ...prev, ...updates }));
-  };
-
-  const nextStep = () => {
-    if (currentStep < 3) {
-      setCurrentStep(currentStep + 1);
-    }
-  };
-
-  const prevStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-    }
-  };
+  const {
+    isSubmitting,
+    uploadProgress,
+    submitApplication,
+  } = useFormSubmission();
 
   const handleClose = () => {
-    setCurrentStep(1);
-    setFormData({
-      role: null,
-      experience: '',
-      qualifications: '',
-      resume: null,
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-    });
-    setUploadProgress('');
+    resetForm();
     onClose();
   };
 
-  const uploadResumeToStorage = async (file: File): Promise<string | null> => {
-    try {
-      setUploadProgress('Uploading resume...');
-      
-      // Generate unique filename
-      const timestamp = Date.now();
-      const sanitizedFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
-      const fileName = `${timestamp}_${sanitizedFileName}`;
-      
-      console.log('Uploading file:', fileName);
-      
-      const { data, error } = await supabase.storage
-        .from('resumes')
-        .upload(fileName, file, {
-          cacheControl: '3600',
-          upsert: false
-        });
-
-      if (error) {
-        console.error('Storage upload error:', error);
-        throw error;
-      }
-
-      console.log('File uploaded successfully:', data);
-      
-      // Get the public URL
-      const { data: urlData } = supabase.storage
-        .from('resumes')
-        .getPublicUrl(fileName);
-
-      return urlData.publicUrl;
-    } catch (error) {
-      console.error('Error uploading resume:', error);
-      throw error;
-    }
-  };
-
   const handleSubmit = async () => {
-    setIsSubmitting(true);
-    
-    try {
-      let resumeUrl = null;
-      
-      // Upload resume if provided
-      if (formData.resume) {
-        resumeUrl = await uploadResumeToStorage(formData.resume);
-      }
-      
-      setUploadProgress('Saving application...');
-      
-      const applicationData = {
-        role: formData.role,
-        experience: formData.experience,
-        qualifications: formData.qualifications,
-        resume_file_name: formData.resume?.name || null,
-        resume_file_size: formData.resume?.size || null,
-        resume_url: resumeUrl,
-        first_name: formData.firstName,
-        last_name: formData.lastName,
-        email: formData.email,
-        phone: formData.phone,
-      };
-
-      const { error } = await supabase
-        .from('team_applications')
-        .insert([applicationData]);
-
-      if (error) {
-        throw error;
-      }
-
-      toast({
-        title: "Application Submitted!",
-        description: "Thank you for your interest. We'll be in touch soon.",
-      });
-
-      console.log('Application submitted successfully:', applicationData);
+    const success = await submitApplication(formData);
+    if (success) {
       handleClose();
-    } catch (error) {
-      console.error('Error submitting application:', error);
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-      setUploadProgress('');
     }
   };
 
@@ -220,43 +110,16 @@ const JoinTeamForm = ({ isOpen, onClose }: JoinTeamFormProps) => {
           </DialogTitle>
         </DialogHeader>
         
-        {/* Progress indicator */}
-        <div className="flex items-center justify-center space-x-4 mb-6">
-          {[1, 2, 3].map((step) => (
-            <div key={step} className="flex items-center">
-              <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                  step <= currentStep
-                    ? 'bg-axis-purple text-white'
-                    : 'bg-gray-200 text-gray-600'
-                }`}
-              >
-                {step}
-              </div>
-              {step < 3 && (
-                <div
-                  className={`w-12 h-1 mx-2 ${
-                    step < currentStep ? 'bg-axis-purple' : 'bg-gray-200'
-                  }`}
-                />
-              )}
-            </div>
-          ))}
-        </div>
+        <ProgressIndicator currentStep={currentStep} totalSteps={3} />
+        
         <div className="overflow-y-auto flex-1 sm:overflow-visible">
           {renderStep()}
         </div>
 
-        {isSubmitting && (
-          <div className="absolute inset-0 bg-white/90 flex items-center justify-center backdrop-blur-sm">
-            <div className="text-center">
-              <Loader2 className="h-8 w-8 animate-spin text-axis-purple mx-auto mb-2" />
-              <div className="text-axis-purple font-deuterium-variable">
-                {uploadProgress || 'Submitting application...'}
-              </div>
-            </div>
-          </div>
-        )}
+        <LoadingOverlay 
+          isVisible={isSubmitting} 
+          message={uploadProgress || 'Submitting application...'} 
+        />
       </DialogContent>
     </Dialog>
   );
