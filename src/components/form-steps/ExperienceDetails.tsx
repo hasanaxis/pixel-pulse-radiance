@@ -117,12 +117,12 @@ const ExperienceDetails = ({
           <div className="mt-2">
             <div className="relative">
               <Input
-                id="resume"
-                type="file"
-                accept=".pdf,.doc,.docx"
-                onChange={handleFileChange}
-                className="font-deuterium-variable file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-medium file:bg-axis-purple file:text-white hover:file:bg-axis-purple-dark"
-              />
+                  id="resume"
+  type="file"
+  accept=".pdf,.doc,.docx"
+  onChange={handleFileChange}
+  className="h-auto font-deuterium-variable file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-medium file:bg-axis-purple file:text-white hover:file:bg-axis-purple-dark"
+/>
               <Upload className="absolute right-3 top-3 h-4 w-4 text-gray-400 pointer-events-none" />
             </div>
             
