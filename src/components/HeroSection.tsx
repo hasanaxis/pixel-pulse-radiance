@@ -27,9 +27,9 @@ const HeroSection = () => {
         <header className="pt-4 sm:pt-8 px-4 sm:px-8 lg:px-16">
           <div className="flex items-center justify-between">
             <img 
-              src="/lovable-uploads/8a1054ae-cb81-4180-bb22-d9ed35f2599a.png" 
+              src="/lovable-uploads/AXIS_LOGO_COLOUR-CMYK.webp" 
               alt="Axis Imaging" 
-              className="h-8 sm:h-12"
+              className="h-12 sm:h-12"
             />
             <Button 
               onClick={() => setIsFormOpen(true)}
