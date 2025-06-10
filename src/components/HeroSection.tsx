@@ -82,14 +82,14 @@ const HeroSection = () => {
                   <div className="space-y-2 sm:space-y-4 flex flex-col h-full lg:justify-center">
                     <div className="flex-1 lg:h-[40%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                       <img
-                        src="/lovable-uploads/5002d0a4-7947-4e58-a0af-bbe2ae2e5de1.png"
+                        src="/lovable-uploads/Xray-standing.webp"
                         alt="Medical professional with patient"
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="flex-1 lg:h-[40%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                       <img
-                        src="/lovable-uploads/5d65367b-6f40-4eee-8a33-fdd8d36fa22c.png"
+                        src="/lovable-uploads/CT-laying.webp"
                         alt="Medical imaging procedure"
                         className="w-full h-full object-cover"
                       />
@@ -100,7 +100,7 @@ const HeroSection = () => {
                   <div className="flex items-stretch lg:items-center lg:justify-center h-full">
                     <div className="w-full lg:h-[70%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                       <img
-                        src="/lovable-uploads/05c74ef0-abd6-40fc-9f5c-ec3cdf5b0302.png"
+                        src="/lovable-uploads/CT-sitting.webp"
                         alt="Advanced medical imaging technology"
                         className="w-full h-full object-cover"
                       />
