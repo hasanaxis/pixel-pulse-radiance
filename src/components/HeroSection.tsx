@@ -190,14 +190,14 @@ const HeroSection = () => {
                   <div className="space-y-2 sm:space-y-4 flex flex-col h-full lg:justify-center">
                     <div className="flex-1 lg:h-[40%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                       <img
-                        src="public/lovable-uploads/CT-laying.webp"
+                        src="/lovable-uploads/CT-laying.webp"
                         alt="Medical professional with patient"
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="flex-1 lg:h-[40%] rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                       <img
-                        src="public/lovable-uploads/Xray-standing.webp"
+                        src="/lovable-uploads/Xray-standing.webp"
                         alt="Medical imaging procedure"
                         className="w-full h-full object-cover"
                       />
@@ -208,7 +208,7 @@ const HeroSection = () => {
                   <div className="flex items-stretch lg:items-center lg:justify-center h-full">
                     <div className="w-full lg:h-full rounded-lg sm:rounded-2xl overflow-hidden shadow-lg">
                       <img
-                        src="public/lovable-uploads/CT-sitting.webp"
+                        src="/lovable-uploads/CT-sitting.webp"
                         alt="Advanced medical imaging technology"
                         className="w-full h-full object-cover"
                       />
