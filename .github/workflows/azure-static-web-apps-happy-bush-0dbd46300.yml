@@ -16,8 +16,6 @@ jobs:
     name: Build and Deploy Job
     steps:
       - uses: actions/checkout@v3
-        with:
-          submodules: false
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -32,9 +30,9 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_HAPPY_BUSH_0DBD46300 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "dist"         # ✅ where the built static files are
-          api_location: ""             # ✅ no API backend
-          skip_app_build: true         # ✅ we're already building it above
+          app_location: "dist"             # ✅ point to built output
+          api_location: ""                 # ✅ no backend
+          skip_app_build: true             # ✅ don't let Azure build again
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
